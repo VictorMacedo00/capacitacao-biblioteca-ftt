@@ -1,0 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+.container {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    grid-template-rows: 64px 1fr 64px;
+}
+
+.contentGrid {    
+    width: 100%;
+    height: 100%;
+    grid-row: 2 / 3;
+    grid-column: 2 / 3;
+    background-color: blanchedalmond;
+}
+
+table {
+    width: 90%;
+    margin: 20px auto;
+  }
+
+.btn {
+    margin-top: 20px;
+    margin-left: 5%;
+}
+
+.btn-list {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.actionsTitle {
+    font-family: 'Roboto', "Helvetica Neue", sans-serif;
+    margin-left: 45%;
+    font-size: 12px;
+    font-weight: 500;
+}
+

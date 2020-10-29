@@ -1,0 +1,29 @@
+.toolBar {
+  position: absolute;
+  z-index: 1;
+}
+
+.footer {
+  width: 100vw;
+  position: fixed;
+  bottom: 0;
+  display: flex;
+  background-color: #e6e6e6;
+}
+
+.footerContent {
+  margin-left: 250px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 0.9rem;
+}
+
+.btn {
+  width: 100%;
+}
+
+.sidenav {
+  width: 250px;
+}

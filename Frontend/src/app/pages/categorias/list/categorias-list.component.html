@@ -1,0 +1,38 @@
+<div class="container">
+    <div class="contentGrid">
+
+        <div class="listTable">
+            <div class="btn">
+                <button [routerLink]="['/categorias/novo']" mat-raised-button color="primary">Cadastrar nova categoria</button>  
+            </div>
+
+            <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+                <ng-container matColumnDef="id">
+                  <th mat-header-cell *matHeaderCellDef> ID </th>
+                  <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+                </ng-container>
+              
+                <ng-container matColumnDef="categorias">
+                  <th mat-header-cell *matHeaderCellDef> Categorias </th>
+                  <td mat-cell *matCellDef="let element"> {{element.categorias}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="actions">
+                  <th mat-header-cell *matHeaderCellDef> <i class="actionsTitle">Ações</i> </th>
+                  <td mat-cell *matCellDef="let element"> 
+                    <div class="btn-list">
+                      <button [routerLink]="['/livros/novaCategoria']" mat-raised-button color="primary">Alterar</button>
+                      <button (click)="deleteById(element.id)" mat-raised-button color="primary">Deletar</button>
+                    </div>
+                  </td>
+                </ng-container>
+                
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+              </table>
+
+        </div>
+
+    </div>
+</div>

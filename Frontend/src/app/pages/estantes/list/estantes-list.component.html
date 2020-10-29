@@ -1,0 +1,46 @@
+<div class="container">
+    <div class="contentGrid">
+
+        <div class="listTable">
+            <div class="btn">
+                <button [routerLink]="['/estantes/novo']" mat-raised-button color="primary">Cadastrar nova estante</button>  
+            </div>
+
+            <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+                <ng-container matColumnDef="id">
+                  <th mat-header-cell *matHeaderCellDef> ID </th>
+                  <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+                </ng-container>
+              
+                <ng-container matColumnDef="estantes">
+                  <th mat-header-cell *matHeaderCellDef> Estante </th>
+                  <td mat-cell *matCellDef="let element"> {{element.estantes}} </td>
+                </ng-container>
+              
+                <ng-container matColumnDef="secoes">
+                  <th mat-header-cell *matHeaderCellDef> Seções </th>
+                  <td mat-cell *matCellDef="let element"> {{element.secoes.secoes}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="actions">
+                  <th mat-header-cell *matHeaderCellDef> <i class="actionsTitle">Ações</i> </th>
+                  <td mat-cell *matCellDef="let element"> 
+                    <div class="btn-list">
+                      <button [routerLink]="['/livros/verLivros']" mat-raised-button color="primary">Ver livros</button>
+                      <button [routerLink]="['/livros/novo']" mat-raised-button color="primary">Alterar</button>
+                      <button (click)="deleteById(element.id)" mat-raised-button color="primary">Deletar</button>
+                    </div>
+                    
+                  </td>
+                </ng-container>
+                
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+              </table>
+
+        </div>
+
+    </div>
+</div>
+
