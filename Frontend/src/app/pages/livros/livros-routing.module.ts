@@ -1,4 +1,5 @@
 import { LivrosListComponent } from "./list/livros-list.component";
+import { LivrosFormComponent } from './form/livros-form.component'
 import { Routes, RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 
@@ -9,7 +10,7 @@ const routes: Routes = [
     },
     {
         path: 'novo',
-        component: LivrosListComponent,
+        component: LivrosFormComponent,
     },
 ];
 
