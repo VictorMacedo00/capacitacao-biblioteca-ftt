@@ -1,4 +1,12 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router'
+import { FormBuilder, FormGroup, Validators } from '@angular/forms'
+import Livros  from '../livros';
+import { LivrosService } from '../livros.service';
+import Categorias from '../../categorias/categorias';
+import { CategoriasService } from '../../categorias/categorias.service';
+import Estantes from '../../estantes/estantes';
+import { EstantesService } from '../../estantes/estantes.service';
 
 @Component({
   selector: 'app-livros-form',
@@ -7,8 +15,55 @@ import { Component, OnInit } from '@angular/core';
 })
 
 export class LivrosFormComponent implements OnInit {
+  
+  constructor(
+    private router: Router, 
+    private builder: FormBuilder, 
+    private livrosService: LivrosService,
+    private categoriasService: CategoriasService,
+    private estantesService: EstantesService,
+    ) {}
+
+  livrosForm: FormGroup;
+  categorias: Categorias[] = [];
+  estantes: Estantes[] = [];
 
   ngOnInit(): void {
+    this.createForm();
+    this.findAllCategorias();
+    this.findAllEstantes();
+
+    console.log(this.categorias);
+    console.log(this.estantes);
+    console.log(this.livrosForm);
+  }
+
+  findAllCategorias() {
+    this.categoriasService.findAll().subscribe((response) => (this.categorias = response));
+  }
+
+  findAllEstantes() {
+    this.estantesService.findAll().subscribe((response) => (this.estantes = response));
+  }
+
+  createForm(): void {
+    this.livrosForm = this.builder.group({
+        id: null,
+        titulo: [null, [Validators.required, Validators.maxLength(120)]],
+        nome_autor: [null, [Validators.required, Validators.maxLength(120)]],
+        isbn: [null, [Validators.required, Validators.maxLength(120)]],
+        categorias: null,
+        estantes: null,
+      })
+  } 
+
+  onCancel(): void {
+    this.router.navigate(['livros'])
+  }
+
+  onSave(value: Livros): void {
+    console.log(value)
+    this.livrosService.save(value).subscribe(response => this.router.navigate(['livros']))
   }
 
 }

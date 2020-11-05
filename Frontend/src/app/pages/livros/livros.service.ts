@@ -2,6 +2,7 @@ import { DataSource } from '@angular/cdk/table';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from "@angular/core";
 import { Observable } from 'rxjs';
+import Livros from './livros'
 
 @Injectable({
     providedIn: 'root',
@@ -14,6 +15,14 @@ export class LivrosService {
     findAll(): Observable<any[]> {
         return this.http.get<any[]>(this.url);
     }
+
+    save(data: Livros): Observable<Livros> {
+        if (data.id) {
+          return this.http.put<Livros>(this.url, data);
+        } else {
+          return this.http.post<Livros>(this.url, data);
+        }
+      }
 
     deleteById(id: number): Observable<any> {
         return this.http.delete(`${this.url}/${id}`);

@@ -25,7 +25,7 @@ const ELEMENT_DATA: LivrosElement[] = []
 })
 
 export class LivrosListComponent implements OnInit {
-  displayedColumns: string[] = ['id', 'nome', 'autor', 'isbn', 'categorias', 'estantes', 'actions'];
+  displayedColumns: string[] = ['nome', 'autor', 'isbn', 'categorias', 'estantes', 'actions'];
   dataSource = ELEMENT_DATA;
   constructor(private livrosService: LivrosService) { }
 

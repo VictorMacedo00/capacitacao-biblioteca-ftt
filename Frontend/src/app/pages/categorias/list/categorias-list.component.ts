@@ -16,7 +16,7 @@ const ELEMENT_DATA: CategoriasElement[] = []
 })
 
 export class CategoriasListComponent implements OnInit {
-  displayedColumns: string[] = ['id', 'categorias', 'actions'];
+  displayedColumns: string[] = ['categorias', 'actions'];
   dataSource = ELEMENT_DATA;
   constructor(private categoriasService: CategoriasService) { }
 
@@ -29,7 +29,7 @@ export class CategoriasListComponent implements OnInit {
   }
 
   deleteById(id: number): void{
-    this.categoriasService.deleteById(id).subscribe(()=> console.log("Deletou"));
+    this.categoriasService.deleteById(id).subscribe(()=> this.findAllCategorias());
   }
 
 }

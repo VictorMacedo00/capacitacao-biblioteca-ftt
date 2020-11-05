@@ -16,7 +16,7 @@ const ELEMENT_DATA: SecoesElement[] = []
 })
 
 export class SecoesListComponent implements OnInit {
-  displayedColumns: string[] = ['id', 'secoes', 'actions'];
+  displayedColumns: string[] = ['secoes', 'actions'];
   dataSource = ELEMENT_DATA;
   constructor(private secoesService: SecoesService) { }
 
@@ -29,7 +29,7 @@ export class SecoesListComponent implements OnInit {
   }
 
   deleteById(id: number): void{
-    this.secoesService.deleteById(id).subscribe(()=> console.log("Deletou"));
+    this.secoesService.deleteById(id).subscribe(()=> this.findAllSecoes());
   }
 
 }

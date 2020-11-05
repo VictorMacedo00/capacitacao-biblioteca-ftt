@@ -1,4 +1,5 @@
 import { CategoriasListComponent } from "./list/categorias-list.component";
+import { CategoriasFormComponent } from "./form/categorias-form.component"
 import { Routes, RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 
@@ -9,7 +10,7 @@ const routes: Routes = [
     },
     {
         path: 'novo',
-        component: CategoriasListComponent,
+        component: CategoriasFormComponent,
     },
 ];
 

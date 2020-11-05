@@ -1,4 +1,5 @@
 import { SecoesListComponent } from "./list/secoes-list.component";
+import { SecoesFormComponent } from "./form/secoes-form.component"
 import { Routes, RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { from } from 'rxjs';
@@ -9,8 +10,8 @@ const routes: Routes = [
         component: SecoesListComponent,
     },
     {
-        path: 'novoCadastro',
-        component: SecoesListComponent,
+        path: 'novo',
+        component: SecoesFormComponent,
     },
 ];
 

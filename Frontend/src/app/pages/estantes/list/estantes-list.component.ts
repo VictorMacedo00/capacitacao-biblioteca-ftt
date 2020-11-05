@@ -19,7 +19,7 @@ const ELEMENT_DATA: EstantesElement[] = []
   styleUrls: ['./estantes-list.component.css']
 })
 export class EstantesListComponent implements OnInit {
-  displayedColumns: string[] = ['id', 'estantes', 'secoes', 'actions'];
+  displayedColumns: string[] = ['estantes', 'secoes', 'actions'];
   dataSource = ELEMENT_DATA;
   constructor(private estantesService: EstantesService) { }
 
@@ -32,7 +32,7 @@ export class EstantesListComponent implements OnInit {
   }
 
   deleteById(id: number): void{
-    this.estantesService.deleteById(id).subscribe(()=> console.log("Deletou"));
+    this.estantesService.deleteById(id).subscribe(()=> this.findAllEstantes());
   }
 
 }

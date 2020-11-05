@@ -1,0 +1,45 @@
+<div class="container">
+    <div class="contentGrid">
+
+        <div class="listTable">
+
+            <mat-card class="containerCard">
+
+                <p class="title"> Cadastrar nova estante </p>
+
+                <form [formGroup]="estantesForm" class="form" action="">
+
+                    <mat-form-field appearance="outline">
+                        <mat-label>Nome da estante</mat-label>
+                        <input formControlName="estantes" matInput placeholder="Ex: Estante A">
+                        <mat-hint>Campo obrigatório</mat-hint>
+                    </mat-form-field>
+
+                    <mat-form-field class="secao" appearance="fill">
+                        <mat-label>Seção</mat-label>
+                        <mat-select formControlName="secoes">
+                          <mat-option *ngFor="let secoes of secoes" [value]="secoes"> {{ secoes.secoes }} </mat-option>
+                        </mat-select>
+                        <mat-hint>Campo obrigatório</mat-hint>
+                    </mat-form-field>
+                      
+                </form>
+
+                <div class="btnControl">
+                    <div class="btn">
+                        <button class="button" (click)="onSave(estantesForm.value)" mat-raised-button color="primary">Salvar</button>  
+                    </div>
+                    <div class="btn">
+                        <button class="button" (click)="onCancel()" mat-raised-button color="primary">Cancelar</button>  
+                    </div>
+                </div>
+                
+
+            </mat-card>
+
+        </div>
+
+    </div>
+</div>
+
+
