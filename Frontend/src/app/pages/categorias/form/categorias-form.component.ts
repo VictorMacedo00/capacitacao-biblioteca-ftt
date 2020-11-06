@@ -34,7 +34,9 @@ export class CategoriasFormComponent implements OnInit {
 
   setValue(){
     const id = this.activatedRoute.snapshot.url[1].path
-    this.categoriasService.findById(Number(id)).subscribe(response => this.categoriasForm.patchValue(response));
+    this.categoriasService
+    .findById(Number(id))
+    .subscribe(response => this.categoriasForm.patchValue(response));
   }
 
   createForm(): void {
@@ -50,7 +52,9 @@ export class CategoriasFormComponent implements OnInit {
 
   onSave(value: Categorias): void {
     console.log(value)
-    this.categoriasService.save(value).subscribe(response => this.router.navigate(['categorias']))
+    this.categoriasService
+    .save(value)
+    .subscribe(response => this.router.navigate(['categorias']))
   }
 
 }

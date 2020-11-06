@@ -32,7 +32,9 @@ export class SecoesFormComponent implements OnInit {
 
   setValue(){
     const id = this.activatedRoute.snapshot.url[1].path
-    this.secoesService.findById(Number(id)).subscribe(response => this.secoesForm.patchValue(response));
+    this.secoesService
+    .findById(Number(id))
+    .subscribe(response => this.secoesForm.patchValue(response));
   }
 
   createForm(): void {
@@ -48,7 +50,9 @@ export class SecoesFormComponent implements OnInit {
 
   onSave(value: Secoes): void {
     console.log(value)
-    this.secoesService.save(value).subscribe(response => this.router.navigate(['secoes']))
+    this.secoesService.save(value)
+    .subscribe(response => this.router
+    .navigate(['secoes']))
   }
 
 }

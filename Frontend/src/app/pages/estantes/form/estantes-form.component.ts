@@ -38,11 +38,14 @@ export class EstantesFormComponent implements OnInit {
 
   setValue(){
     const id = this.activatedRoute.snapshot.url[1].path
-    this.estantesService.findById(Number(id)).subscribe(response => this.estantesForm.patchValue(response));
+    this.estantesService.findById(Number(id))
+    .subscribe(response => this.estantesForm
+    .patchValue(response));
   }
 
   findAllSecoes() {
-    this.secoesService.findAll().subscribe((response) => (this.secoes = response));
+    this.secoesService.findAll()
+    .subscribe((response) => (this.secoes = response));
   }
 
   createForm(): void {
@@ -59,7 +62,9 @@ export class EstantesFormComponent implements OnInit {
 
   onSave(value: Estantes): void {
     console.log(value)
-    this.estantesService.save(value).subscribe(response => this.router.navigate(['estantes']))
+    this.estantesService
+    .save(value)
+    .subscribe(response => this.router.navigate(['estantes']))
   }
 
 

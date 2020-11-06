@@ -14,17 +14,21 @@
     height: 100%;
     grid-row: 2 / 3;
     grid-column: 2 / 3;
-    background-color: blanchedalmond;
+    background-color: #E7F2C7;
 }
 
 table {
     width: 90%;
     margin: 20px auto;
-  }
+}
 
 .btn {
     margin-top: 20px;
     margin-left: 5%;
+}
+
+.btnNew {
+    background-color: #4e2e54;
 }
 
 .btn-list {
@@ -32,10 +36,18 @@ table {
     justify-content: space-evenly;
 }
 
-.actionsTitle {
-    font-family: 'Roboto', "Helvetica Neue", sans-serif;
-    margin-left: 45%;
-    font-size: 12px;
-    font-weight: 500;
+.delete {
+    background-color: #7E3115;
 }
 
+.update {
+    background-color: #28C590;
+}
+
+.titleAcoes {
+    padding-left: 150px;
+}
+
+.titleCategorias {
+    padding-right: 20px;
+}

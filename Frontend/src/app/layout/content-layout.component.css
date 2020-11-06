@@ -1,6 +1,13 @@
 .toolBar {
   position: absolute;
   z-index: 1;
+  background-color: #332C29;
+  color: #ffffff;
+}
+
+.sidenav {
+  width: 250px;
+  background-color: #42382D;
 }
 
 .footer {
@@ -8,15 +15,15 @@
   position: fixed;
   bottom: 0;
   display: flex;
-  background-color: #e6e6e6;
 }
 
 .footerContent {
-  margin-left: 250px;
   display: flex;
   align-items: center;
-  justify-content: center;
-
+  justify-content: center;  
+  background-color: #332C29;
+  color: #ffffff;
+  margin-left: 250px;
   font-size: 0.9rem;
 }
 
@@ -24,6 +31,6 @@
   width: 100%;
 }
 
-.sidenav {
-  width: 250px;
+.navBtn {
+  color: #ffffff;
 }

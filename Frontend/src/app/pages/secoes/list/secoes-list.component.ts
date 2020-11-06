@@ -8,7 +8,6 @@ interface SecoesElement {
 
 const ELEMENT_DATA: SecoesElement[] = []
 
-
 @Component({
   selector: 'app-secoes-list',
   templateUrl: './secoes-list.component.html',
@@ -25,11 +24,15 @@ export class SecoesListComponent implements OnInit {
   }
 
   findAllSecoes(): void{
-    this.secoesService.findAll().subscribe((response) => this.dataSource = response);
+    this.secoesService
+    .findAll()
+    .subscribe((response) => this.dataSource = response);
   }
 
   deleteById(id: number): void{
-    this.secoesService.deleteById(id).subscribe(()=> this.findAllSecoes());
+    this.secoesService
+    .deleteById(id)
+    .subscribe(()=> this.findAllSecoes());
   }
 
 }

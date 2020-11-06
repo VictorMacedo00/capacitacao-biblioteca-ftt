@@ -2,13 +2,6 @@ import { Routes } from '@angular/router';
 
 export const CONTENT_ROUTES: Routes = [
     {
-        path: 'default',
-        loadChildren: () =>
-            import('../../pages/default/default.module').then(
-                (m) => m.DefaultModule
-            ),
-    },
-    {
         path: 'livros',
         loadChildren: () =>
             import('../../pages/livros/livros.module').then(

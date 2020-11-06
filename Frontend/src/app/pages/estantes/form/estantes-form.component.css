@@ -68,3 +68,11 @@ mat-form-field {
     width: 110px;
     margin-bottom: 10px;
 }
+
+.save {
+    background-color: #28C590;
+}
+
+.cancel {
+    background-color: #7E3115;
+}

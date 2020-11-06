@@ -28,11 +28,21 @@ table {
 .btn-list {
     display: flex;
     justify-content: space-evenly;
+    margin-left: 600px;
 }
 
-.actionsTitle {
-    font-family: 'Roboto', "Helvetica Neue", sans-serif;
-    margin-left: 45%;
-    font-size: 12px;
-    font-weight: 500;
+.acoesTitle {
+    padding-left: 725px;
+}
+
+.save {
+    background-color: #28C590;
+}
+
+.cancel {
+    background-color: #7E3115;
+}
+
+.btnNew {
+    background-color: #4e2e54;
 }
