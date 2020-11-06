@@ -12,6 +12,10 @@ const routes: Routes = [
         path: 'novo',
         component: LivrosFormComponent,
     },
+    {
+        path: 'alterar/:id',
+        component: LivrosFormComponent,
+    }
 ];
 
 @NgModule({

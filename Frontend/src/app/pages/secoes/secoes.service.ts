@@ -16,9 +16,13 @@ export class SecoesService {
         return this.http.get<any[]>(this.url);
     }
 
+    findById(id: number): Observable<Secoes> {
+        return this.http.get<Secoes>(`${this.url}/${id}`);
+    }
+
     deleteById(id: number): Observable<any> {
         return this.http.delete(`${this.url}/${id}`);
-      }
+    }
 
     save(data: Secoes): Observable<Secoes> {
         if (data.id) {
@@ -27,8 +31,5 @@ export class SecoesService {
             return this.http.post<Secoes>(this.url, data);
         }
     }
-
-    findById(id: number): Observable<Secoes> {
-        return this.http.get<Secoes>(`${this.url}/${id}`)
-    }
+    
 }

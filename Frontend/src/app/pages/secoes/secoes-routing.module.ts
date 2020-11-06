@@ -13,6 +13,10 @@ const routes: Routes = [
         path: 'novo',
         component: SecoesFormComponent,
     },
+    {
+        path: 'alterar/:id',
+        component: SecoesFormComponent,
+    }
 ];
 
 @NgModule({

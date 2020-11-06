@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import Categorias  from '../categorias';
-import { Router } from '@angular/router'
+import { ActivatedRoute ,Router } from '@angular/router'
 import { FormBuilder, FormGroup, Validators } from '@angular/forms'
 import { CategoriasService } from '../categorias.service';
 
@@ -13,14 +13,28 @@ import { CategoriasService } from '../categorias.service';
 
 export class CategoriasFormComponent implements OnInit {
 
-  constructor(private router: Router, private builder: FormBuilder, private categoriasService: CategoriasService) {}
+  constructor(private router: Router, 
+    private builder: FormBuilder, 
+    private categoriasService: CategoriasService,
+    private activatedRoute: ActivatedRoute
+    ) {}
 
-  categoriasForm: FormGroup
+  categoriasForm: FormGroup;
+  action: string;
 
   ngOnInit(): void {
     this.createForm();
 
-    console.log(this.categoriasForm)
+    this.action = this.activatedRoute.snapshot.url[0].path;
+    if (this.action == 'alterar') {
+      this.setValue();
+    }
+
+  }
+
+  setValue(){
+    const id = this.activatedRoute.snapshot.url[1].path
+    this.categoriasService.findById(Number(id)).subscribe(response => this.categoriasForm.patchValue(response));
   }
 
   createForm(): void {

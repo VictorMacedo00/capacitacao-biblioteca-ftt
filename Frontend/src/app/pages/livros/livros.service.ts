@@ -16,6 +16,10 @@ export class LivrosService {
         return this.http.get<any[]>(this.url);
     }
 
+    findById(id: number): Observable<Livros> {
+      return this.http.get<Livros>(`${this.url}/${id}`);
+    }
+
     save(data: Livros): Observable<Livros> {
         if (data.id) {
           return this.http.put<Livros>(this.url, data);

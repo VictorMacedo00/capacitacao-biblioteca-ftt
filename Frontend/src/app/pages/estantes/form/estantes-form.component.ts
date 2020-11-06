@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router'
+import { ActivatedRoute ,Router } from '@angular/router'
 import { FormBuilder, FormGroup, Validators } from '@angular/forms'
 import { EstantesService } from '../estantes.service';
 import Estantes  from '../estantes';
@@ -19,17 +19,26 @@ export class EstantesFormComponent implements OnInit {
     private builder: FormBuilder, 
     private estantesService: EstantesService,
     private secoesService: SecoesService,
+    private activatedRoute: ActivatedRoute
     ) {}
 
   estantesForm: FormGroup;
   secoes: Secoes[] = [];
+  action: string;
 
   ngOnInit(): void {
     this.createForm();
     this.findAllSecoes();
 
-    console.log(this.secoes)
-    console.log(this.estantesForm)
+    this.action = this.activatedRoute.snapshot.url[0].path;
+    if (this.action == 'alterar') {
+      this.setValue();
+    }
+  }
+
+  setValue(){
+    const id = this.activatedRoute.snapshot.url[1].path
+    this.estantesService.findById(Number(id)).subscribe(response => this.estantesForm.patchValue(response));
   }
 
   findAllSecoes() {

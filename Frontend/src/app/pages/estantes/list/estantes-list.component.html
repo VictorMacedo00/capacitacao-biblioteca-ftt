@@ -23,7 +23,7 @@
                   <td mat-cell *matCellDef="let element"> 
                     <div class="btn-list">
                       <button [routerLink]="['/livros/verLivros']" mat-raised-button color="primary">Ver livros</button>
-                      <button [routerLink]="['/livros/novo']" mat-raised-button color="primary">Alterar</button>
+                      <button [routerLink]="['/estantes/alterar', element.id]" mat-raised-button color="primary">Alterar</button>
                       <button (click)="deleteById(element.id)" mat-raised-button color="primary">Deletar</button>
                     </div>
                     

@@ -40,5 +40,4 @@ export class LivrosListComponent implements OnInit {
   deleteById(id: number): void{
     this.livrosService.deleteById(id).subscribe(()=> this.findAllLivros());
   }
-
 }

@@ -16,6 +16,10 @@ export class EstantesService {
         return this.http.get<any[]>(this.url);
     }
 
+    findById(id: number): Observable<Estantes> {
+      return this.http.get<Estantes>(`${this.url}/${id}`);
+    }
+
     save(data: Estantes): Observable<Estantes> {
         if (data.id) {
           return this.http.put<Estantes>(this.url, data);

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router'
-import { FormBuilder, FormGroup, Validators } from '@angular/forms'
+import { ActivatedRoute ,Router } from '@angular/router';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import Livros  from '../livros';
 import { LivrosService } from '../livros.service';
 import Categorias from '../../categorias/categorias';
@@ -22,20 +22,29 @@ export class LivrosFormComponent implements OnInit {
     private livrosService: LivrosService,
     private categoriasService: CategoriasService,
     private estantesService: EstantesService,
+    private activatedRoute: ActivatedRoute
     ) {}
 
   livrosForm: FormGroup;
   categorias: Categorias[] = [];
   estantes: Estantes[] = [];
+  action: string;
 
   ngOnInit(): void {
     this.createForm();
     this.findAllCategorias();
     this.findAllEstantes();
 
-    console.log(this.categorias);
-    console.log(this.estantes);
-    console.log(this.livrosForm);
+    this.action = this.activatedRoute.snapshot.url[0].path;
+    if (this.action == 'alterar') {
+      this.setValue();
+    }
+
+  }
+
+  setValue(){
+    const id = this.activatedRoute.snapshot.url[1].path
+    this.livrosService.findById(Number(id)).subscribe(response => this.livrosForm.patchValue(response));
   }
 
   findAllCategorias() {

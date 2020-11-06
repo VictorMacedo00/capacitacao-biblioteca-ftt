@@ -11,6 +11,10 @@ const routes: Routes = [
     {
         path: 'novo',
         component: EstantesFormComponent,
+    },
+    {
+        path: 'alterar/:id',
+        component: EstantesFormComponent,
     }
 ];
 

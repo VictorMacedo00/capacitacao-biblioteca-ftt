@@ -16,6 +16,10 @@ export class CategoriasService {
         return this.http.get<any[]>(this.url);
     }
 
+    findById(id: number): Observable<Categorias> {
+      return this.http.get<Categorias>(`${this.url}/${id}`);
+    }
+
     save(data: Categorias): Observable<Categorias> {
         if (data.id) {
           return this.http.put<Categorias>(this.url, data);

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import Secoes  from '../secoes';
-import { Router } from '@angular/router'
+import { ActivatedRoute, Router } from '@angular/router'
 import { FormBuilder, FormGroup, Validators } from '@angular/forms'
 import { SecoesService } from '../secoes.service';
 
@@ -12,14 +12,27 @@ import { SecoesService } from '../secoes.service';
 
 export class SecoesFormComponent implements OnInit {
 
-  constructor(private router: Router, private builder: FormBuilder, private secoesService: SecoesService) {}
+  constructor(private router: Router,
+    private builder: FormBuilder, 
+    private secoesService: SecoesService,
+    private activatedRoute: ActivatedRoute
+    ) {}
 
   secoesForm: FormGroup
+  action: string;
 
   ngOnInit(): void {
     this.createForm();
 
-    console.log(this.secoesForm);
+    this.action = this.activatedRoute.snapshot.url[0].path;
+    if (this.action == 'alterar') {
+      this.setValue();
+    }
+  }
+
+  setValue(){
+    const id = this.activatedRoute.snapshot.url[1].path
+    this.secoesService.findById(Number(id)).subscribe(response => this.secoesForm.patchValue(response));
   }
 
   createForm(): void {
