@@ -76,3 +76,7 @@ mat-form-field {
 .cancel {
     background-color: #7E3115;
 }
+
+.matHint {
+    color: red;
+}

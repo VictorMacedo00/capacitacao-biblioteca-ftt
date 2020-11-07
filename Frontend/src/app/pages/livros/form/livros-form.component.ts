@@ -60,7 +60,7 @@ export class LivrosFormComponent implements OnInit {
         id: null,
         titulo: [null, [Validators.required, Validators.maxLength(120)]],
         nome_autor: [null, [Validators.required, Validators.maxLength(120)]],
-        isbn: [null, [Validators.required, Validators.maxLength(120)]],
+        isbn: [null, [Validators.required, Validators.maxLength(13), Validators.minLength(13)]],
         categorias: null,
         estantes: null,
       })

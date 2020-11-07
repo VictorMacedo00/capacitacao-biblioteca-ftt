@@ -12,19 +12,19 @@
                     <mat-form-field appearance="outline">
                         <mat-label>Título do livro</mat-label>
                         <input formControlName="titulo" matInput placeholder="Ex: O Poder do Hábito">
-                        <mat-hint>Campo obrigatório</mat-hint>
+                        <mat-hint class="matHint">Campo obrigatório</mat-hint>
                     </mat-form-field>
 
                     <mat-form-field appearance="outline">
                         <mat-label>Autor da obra</mat-label>
                         <input formControlName="nome_autor" matInput placeholder="Ex: Charles Duhigg">
-                        <mat-hint>Campo obrigatório</mat-hint>
+                        <mat-hint class="matHint">Campo obrigatório</mat-hint>
                     </mat-form-field>
 
                     <mat-form-field class="isbn" appearance="outline">
                         <mat-label>ISBN</mat-label>
-                        <input formControlName="isbn" matInput placeholder="Ex: D9783161484100">
-                        <mat-hint>Campo obrigatório</mat-hint>
+                        <input formControlName="isbn" matInput placeholder="Ex: D9783161484100" required>
+                        <mat-hint class="matHint">Campo obrigatório</mat-hint>
                     </mat-form-field>
 
                       <div class="line">
@@ -34,7 +34,7 @@
                             <mat-select formControlName="categorias">
                               <mat-option *ngFor="let categorias of categorias" [value]="categorias"> {{categorias.categorias}} </mat-option>
                             </mat-select>
-                            <mat-hint>Campo obrigatório</mat-hint>
+                            <mat-hint class="matHint">Campo obrigatório</mat-hint>
                         </mat-form-field>
 
                         <mat-form-field class="estantes" appearance="fill">
@@ -42,7 +42,7 @@
                             <mat-select formControlName="estantes">
                               <mat-option *ngFor="let estantes of estantes" [value]="estantes"> {{estantes.estantes}} </mat-option>
                             </mat-select>
-                            <mat-hint>Campo obrigatório</mat-hint>
+                            <mat-hint class="matHint">Campo obrigatório</mat-hint>
                         </mat-form-field>
 
                       </div>

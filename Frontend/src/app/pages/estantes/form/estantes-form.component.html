@@ -12,7 +12,7 @@
                     <mat-form-field appearance="outline">
                         <mat-label>Nome da estante</mat-label>
                         <input formControlName="estantes" matInput placeholder="Ex: Estante A">
-                        <mat-hint>Campo obrigatório</mat-hint>
+                        <mat-hint class="matHint">Campo obrigatório</mat-hint>
                     </mat-form-field>
 
                     <mat-form-field class="secao" appearance="fill">
@@ -20,7 +20,7 @@
                         <mat-select formControlName="secoes">
                           <mat-option *ngFor="let secoes of secoes" [value]="secoes"> {{ secoes.secoes }} </mat-option>
                         </mat-select>
-                        <mat-hint>Campo obrigatório</mat-hint>
+                        <mat-hint class="matHint">Campo obrigatório</mat-hint>
                     </mat-form-field>
                       
                 </form>
